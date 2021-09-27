@@ -138,7 +138,7 @@
     .legal-mention-container {
         width: -webkit-fit-content;
         width: -moz-fit-content;
-        width: calc(100% - 120px);
+        width: calc(100% - 60px);
         display: flex;
         position: absolute;
         right: 30px;
@@ -194,7 +194,7 @@
 .legal-mention-container {
     width: -webkit-fit-content;
     width: -moz-fit-content;
-    width: calc(100% - 80px);
+    width: calc(100% - 40px);
     display: flex;
     position: absolute;
     right: 20px;
