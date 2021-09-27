@@ -1,0 +1,105 @@
+.landing-filmproject-section{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.landing-filmproject-section h1{
+    text-align: center;
+    font-family: 'Schnyder';
+    font-weight: 300;
+    font-size: 9vw;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #ececea;
+    text-decoration: none;
+}
+.landing-filmproject-section img{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+.filmproject-details-section{
+    position: relative;
+    width: 100%;
+    height: auto;
+}
+.filmproject-informations-container{
+    position: relative;
+    height: auto;
+    width: 80%;
+    margin: 100px auto;
+    text-align: center;
+}
+.filmproject-informations-container h2{
+    text-align: center;
+    font-family: 'Schnyder';
+    font-weight: 300;
+    font-size: 3vw;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: black;
+    text-decoration: none;
+    margin-bottom: 25px;
+}
+.filmproject-informations-container h3{
+    font-family: 'novecento-sans-wide';
+    font-weight: 100;
+    font-size: 1.75vw;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+    color: black;
+    text-decoration: none;
+}
+.filmproject-image-container{
+    position: relative;
+    width: 80vw;
+    height: 45vw;
+    overflow: hidden;
+    margin: 50px auto;
+}
+.filmproject-image-container img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@media (min-width: 768px) and (max-width: 1023px){
+    .landing-filmproject-section{
+        height: calc(var(--vh)*100)
+    }
+    .landing-filmproject-section h1{
+        font-size: 12.5vw;
+    }
+    .filmproject-image-container {
+        width: 85vw;
+        height: 48vw;
+    }
+    .filmproject-informations-container h2{
+        font-size: 6vw;
+    }
+    .filmproject-informations-container h3{
+        font-size: 3.25vw;
+    }
+}
+@media (max-width: 767px) {
+    .landing-filmproject-section{
+        height: calc(var(--vh)*100)
+    }
+    .landing-filmproject-section h1{
+        font-size: 12.5vw;
+    }
+    .filmproject-informations-container{
+        margin: 75px auto;
+    }
+    .filmproject-informations-container h2{
+        font-size: 6vw;
+    }
+    .filmproject-informations-container h3{
+        font-size: 3.25vw;
+    }
+}

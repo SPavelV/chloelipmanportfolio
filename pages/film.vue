@@ -1,26 +1,20 @@
 <template>
-    <div>
+    <div class="white-menu">
         <MainMenu />
-        <div>
-            <NuxtLink to="/">
-                <div>
-                    <h2>Whole Foods</h2>
-                </div>
-                <img src="" alt="">
+        <section class="film-page-section">
+            <NuxtLink class="page-film-container" to="/">
+                <h2>Whole Foods</h2>
+                <img src="~/assets/img/1Floating.jpg" alt="">
             </NuxtLink>
-            <NuxtLink to="/">
-                <div>
-                    <h2>Floating Away</h2>
-                </div>
-                <img src="" alt="">
+            <NuxtLink class="page-film-container" to="/">
+                <h2>Floating Away</h2>
+                <img src="~/assets/img/8Emily.jpg" alt="">
             </NuxtLink>
-            <NuxtLink to="/">
-                <div>
-                    <h2>The Perfect Match</h2>
-                </div>
-                <img src="" alt="">
+            <NuxtLink class="page-film-container" to="/">
+                <h2>The Perfect Match</h2>
+                <img src="~/assets/img/17SorrentoLandscape.jpg" alt="">
             </NuxtLink>
-        </div>
+        </section>
     </div>
 </template>
 
@@ -34,4 +28,4 @@ export default {
 }
 </script>
 
-<style></style>
+<style lang="css" src="~/assets/css/main.css"></style>

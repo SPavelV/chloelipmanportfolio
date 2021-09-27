@@ -1,9 +1,23 @@
 @import '~/assets/css/header.css';
 @import '~/assets/css/index.css';
-@import '~/assets/css/about.css';
 @import '~/assets/css/contact.css';
 @import '~/assets/css/film.css';
 @import '~/assets/css/filmprojects.css';
 @import '~/assets/css/photography.css';
 @import '~/assets/css/gridphotography.css';
 @import '~/assets/css/preload.css';
+@import '~/assets/fonts/font.css';
+@import '~/plugins/slick/slick.css';
+
+body{
+    margin: 0;
+    background-color: #ececea;
+}
+
+h1,h2,h3,h4,h5,h6,p,a{
+    margin: 0;
+}
+
+a{
+    text-decoration: none;
+}
