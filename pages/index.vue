@@ -86,7 +86,7 @@
         </NuxtLink>
     </div>
     </section>
-    <section class="contact-section">
+    <section class="contact-section home-contact">
         <div class="contact-infos-container">
             <div class="contact-title-container">
                 <div>
