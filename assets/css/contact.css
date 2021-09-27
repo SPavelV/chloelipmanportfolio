@@ -103,6 +103,9 @@
         height: calc(calc(var(--vh)*100) - calc(120px + 10vw));
         padding: calc(120px + 10vw) 60px 0 60px;
     }
+    .contact-section.home-contact{
+        height: calc(100vh - calc(120px + 10vw));
+    }
     .contact-infos-container {
         width: 100%;
         margin: calc(var(--vh)*25) 0 0 auto;
@@ -158,6 +161,9 @@
     width: calc(100% - 80px);
     height: calc(calc(var(--vh)*100) - calc(80px + 10vw));
     padding: calc(80px + 10vw) 40px 0 40px;
+}
+.contact-section.home-contact{
+    height: calc(100vh - calc(80px + 10vw));
 }
 .contact-infos-container {
     width: 100%;
