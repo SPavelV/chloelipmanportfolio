@@ -265,12 +265,15 @@
     width: 100%;
     object-fit: cover;
 }
+<<<<<<< HEAD
 .player .vp-sidedock{
     display: none;
 }
 .player .vp-controls{
     display: none;
 }
+=======
+>>>>>>> 5bc8d2aeefaebdf0112574db5c2023095dfb5f44
 @media (min-width: 768px) and (max-width: 1023px){
     .landing-home-section{
         height: calc(var(--vh)*100)
@@ -279,7 +282,11 @@
         font-size: 40vw;
     }
     .landing-home-section{
+<<<<<<< HEAD
         margin-bottom: 200px;
+=======
+        margin-bottom: 300px;
+>>>>>>> 5bc8d2aeefaebdf0112574db5c2023095dfb5f44
     }
     .about-home-section {
         margin: 200px auto;
