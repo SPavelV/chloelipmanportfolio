@@ -18,13 +18,13 @@
                     </div>
                     <div class="contact-follows-colums">
                         <h2>Follow</h2>
-                        <a href="#instagram">Instagram</a>
-                        <a href="#linkedin">Linkedin</a>
+                        <a href="https://instagram.com/cllphoto_" target="_blank">Instagram</a>
+                        <a href="https://www.linkedin.com/in/chloe-lipman/" target="_blank">Linkedin</a>
                     </div>
                 </div>
             </div>
             <div class="contact-image-container">
-                <img src="~/assets/img/6CamrynPortrait.jpg" alt="">
+                <img src="~/assets/img/menu-contact.jpeg" alt="">
             </div>
             <div class="legal-mention-container">
                 <p>Chloe Lipman © 2021</p>
@@ -65,19 +65,18 @@ export default {
 
     methods: {
         ListCaroussel: function(){
+            gsap.fromTo('#connect', 0.5, { opacity: 0, repeat: -1, repeatDelay: 10 },
+            { opacity: 1, repeat: -1, repeatDelay: 10 });
+            gsap.to('#connect', 0.5, { opacity: 0, delay: 3, repeat: -1, repeatDelay: 10 });
             
-            gsap.fromTo('#connect', 1, { opacity: 0, repeat: -1, repeatDelay: 17 },
-            { opacity: 1, repeat: -1, repeatDelay: 17 });
-            gsap.to('#connect', 1, { opacity: 0, delay: 5, repeat: -1, repeatDelay: 17 });
+            gsap.fromTo('#create', 0.5, { opacity: 0, repeat: -1, repeatDelay: 10 },
+            { opacity: 1, delay: 3.5, repeat: -1, repeatDelay: 10 });
+            gsap.to('#create', 0.5, { opacity: 0, delay: 6.5, repeat: -1, repeatDelay: 10 });
             
-            gsap.fromTo('#create', 1, { opacity: 0, repeat: -1, repeatDelay: 17 },
-            { opacity: 1, delay: 6, repeat: -1, repeatDelay: 17 });
-            gsap.to('#create', 1, { opacity: 0, delay: 11, repeat: -1, repeatDelay: 17 });
-            
-            gsap.fromTo('#collaborate', 1, { opacity: 0, repeat: -1, repeatDelay: 17 },
-            { opacity: 1, delay: 12, repeat: -1, repeatDelay: 17 });
-            gsap.to('#collaborate', 1, { opacity: 0, delay: 17, repeat: -1, repeatDelay: 17 });
-        }
+            gsap.fromTo('#collaborate', 0.5, { opacity: 0, repeat: -1, repeatDelay: 10 },
+            { opacity: 1, delay: 7, repeat: -1, repeatDelay: 10 });
+            gsap.to('#collaborate', 0.5, { opacity: 0, delay: 10, repeat: -1, repeatDelay: 10 });
+        },
     }
 
 }

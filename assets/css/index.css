@@ -1,27 +1,62 @@
 .landing-home-section{
     position: relative;
     width: 100%;
-    height: 100vh;
+    height: auto;
     overflow: hidden;
-    margin-bottom: 300px;
+    margin-bottom: 0px;
+}
+.landing-home-container{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+}
+#landing-home-section{
+    position: relative;
+    width: 100%;
+    height: 200vh;
+    z-index: -1;
+}
+.landing-home-title-container{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+    bottom: 0;
+    z-index: 1;
+    width: fit-content;
+    height: 100%;
 }
 .landing-home-section h1{
-    position: absolute;
-    bottom: 0;
     font-family: 'Schnyder';
     font-weight: 300;
-    font-size: 20vw;
+    font-size: 30vw;
     white-space: nowrap;
     letter-spacing: 0.05em;
+    line-height: 0.9em;
     text-transform: uppercase;
     color: #ececea;
-    z-index: 1;
+    margin-top: auto;
 }
-.landing-home-section img{
-    position: relative;
-    height: 100%;
+.landing-iframe-container{
     width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+.landing-iframe-container iframe{
+    position: relative;
+    top: 0;
+    left: 0;
     object-fit: cover;
+    top:-20vh;
+    left:-10vw;
+    width:120vw;
+    height:140vh;
 }
 .about-home-section {
     position: relative;
@@ -29,10 +64,11 @@
     height: 100vh;
     overflow: hidden;
     margin: 300px auto;
+    background-color: #ececea;
 }
 .about-home-section h2{
     position: absolute;
-    top: 0;
+    top: 0px;
     left: -1.5%;
     font-family: 'Schnyder';
     font-weight: 300;
@@ -42,7 +78,7 @@
     text-transform: uppercase;
     color: black;
     z-index: 1;
-    opacity: 0.15;
+    opacity: 0;
 }
 .about-infos-home-container{
     position: relative;
@@ -57,6 +93,7 @@
     position: relative;
     width: fit-content;
     height: auto;
+    opacity: 0;
 }
 .about-infos-home-container .about-info-word-wrapper h3{
     font-family: 'novecento-sans-wide';
@@ -75,6 +112,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    opacity: 1;
 }
 .about-home-details-container .about-details-paragrapher{
     position: relative;
@@ -85,6 +123,7 @@
     position: relative;
     width: 60%;
     height: auto;
+    opacity: 0;
     transform: translateY(-25%);
 }
 .about-home-details-container .about-details-paragrapher p{
@@ -96,6 +135,7 @@
     color: black;
     line-height: 1.75em;
     text-decoration: none;
+    opacity: 0;
 }
 .about-home-details-container .about-details-image img{
     width: 100%;
@@ -142,9 +182,21 @@
     line-height: 3em;
     color: #ececea;
     text-decoration: none;
-    opacity: 0.3;
+    opacity: 1;
 }
-.filmprojects-home-container a:first-child{
+.filmprojects-home-container a h3{
+    font-family: 'Schnyder';
+    font-weight: 300;
+    font-size: 3.5vw;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    line-height: 3em;
+    color: #ececea;
+    text-decoration: none;
+    opacity: 0.3;
+    transition: opacity .3s;
+}
+.filmprojects-home-container a.active h3{
     font-family: 'Schnyder';
     font-weight: 300;
     font-size: 3.5vw;
@@ -155,7 +207,7 @@
     text-decoration: none;
     opacity: 1;
 }
-.filmprojects-home-container img {
+.filmprojects-home-container a img{
     position: absolute;
     top: 0;
     left: 0;
@@ -163,14 +215,28 @@
     width: calc(100vw - 120px);
     height: calc(100vh - 120px);
     object-fit: cover;
+    opacity: 0;
+    z-index: -1;
+    transition: opacity .3s;
+}
+.filmprojects-home-container .active img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 60px;
+    width: calc(100vw - 120px);
+    height: calc(100vh - 120px);
+    object-fit: cover;
+    opacity: 1;
     z-index: -1;
 }
-.filmprojects-home-container .switch-all-project {
-    position: absolute;
-    bottom: 10px;
-    right: 60px;
+.switch-all-project {
+    position: relative;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: 60px;
 }
-.filmprojects-home-container .switch-all-project a{
+.switch-all-project a{
     font-family: 'novecento-sans-wide';
     font-weight: 100;
     font-size: 0.85rem;
@@ -195,6 +261,7 @@
       ". . . . . . . . . . . . . . . . . . . . . . . . . . . . ."
       ". . . . . . . . . . . . . . . . . . . . . . . . . . . . ."; 
     width: 100%;
+    margin-top: 75px;
 }
 .photo-home-image-container:nth-child(1){
     display: block;

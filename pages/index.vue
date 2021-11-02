@@ -1,93 +1,115 @@
 <template>
-  <div>
-    <MainMenu />
-    <section class="landing-home-section">
-        <div class="landing-home-title-container">
-             <prismic-rich-text :field="page.page_title" />
-        </div>
-        <div v-if="is_not_responsive" style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/631584056?h=20c4c25857&autoplay=1&loop=1&muted=1&color=ffffff&title=0&byline=0&portrait=0" style="position:absolute;top:-20vh;left:-10vw;width:120vw;height:140vh;" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
-        <div v-if="is_responsive" style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/631584056?h=20c4c25857&autoplay=1&loop=1&muted=1&color=ffffff&title=0&byline=0&portrait=0" style="position:absolute;top:-10vh;left:-170vw;width:440vw;height:120vh;" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
-    </section>
-    <section class="about-home-section" id="about">
-        <div class="storyteller-home-container">
-            <prismic-rich-text :field="page.subtitle_about" />
-        </div>
-        <div class="about-infos-home-container">
-            <div class="about-info-word-wrapper">
-                <prismic-rich-text :field="page.key_words_about1" />
-            </div>
-            <div class="about-info-word-wrapper">
-                <prismic-rich-text :field="page.key_words_about2" />
-            </div>
-            <div class="about-info-word-wrapper">
-                <prismic-rich-text :field="page.key_words_about3" />
-            </div>
-        </div>
-        <div class="about-home-details-container">
-            <div class="about-details-paragrapher">
-                <prismic-rich-text :field="page.about_paragraph" />
-            </div>
-            <div class="about-details-image">
-                <prismic-image :field="page.image_about" />
+  <div class="HomePage">
+    <LocomotiveScroll
+        ref="scroller"
+        :getted-options="{
+        smooth: true,
+        direction: 'vertical',
+        smartphone: {
+            //smooth: true,
+            direction: 'vertical',
+        },
+        tablet: {
+            //smooth: true,
+            direction: 'vertical',
+        },
+        }"
+    >
+    <section class="landing-home-section" data-scroll-section data-scroll data-scroll-offset="0%, 0%" data-scroll-call="test" data-scroll-repeat>
+        <div id="landing-home-section"></div>
+        <div class="landing-home-container" data-scroll data-scroll-sticky data-scroll-target="#landing-home-section">
+            <div class="landing-iframe-container"><iframe src="https://player.vimeo.com/video/631584056?h=20c4c25857&autoplay=1&loop=1&muted=1&color=ffffff&title=0&byline=0&portrait=0" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe><script src="https://player.vimeo.com/api/player.js"></script></div>
+            <div class="landing-home-title-container" data-scroll data-scroll-direction="horizontal" data-scroll-speed="16.5">
+                <prismic-rich-text :field="page.page_title" />
             </div>
         </div>
     </section>
-    <section class="films-home-section">
+    <section class="about-home-section" id="about" data-scroll-section>
+        <div id="about-home-section"></div>
+        <div class="about-home-container">
+            <div class="storyteller-home-container" data-scroll data-scroll-call="AboutHomeAnimation">
+                <prismic-rich-text :field="page.subtitle_about" />
+            </div>
+            <div class="about-infos-home-container">
+                <div class="about-info-word-wrapper">
+                    <prismic-rich-text :field="page.key_words_about1" />
+                </div>
+                <div class="about-info-word-wrapper">
+                    <prismic-rich-text :field="page.key_words_about2" />
+                </div>
+                <div class="about-info-word-wrapper">
+                    <prismic-rich-text :field="page.key_words_about3" />
+                </div>
+            </div>
+            <div class="about-home-details-container">
+                <div class="about-details-paragrapher">
+                    <prismic-rich-text :field="page.about_paragraph" />
+                </div>
+                <div class="about-details-image">
+                    <prismic-image :field="page.image_about" />
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="films-home-section" data-scroll-section>
         <div class="films-home-container">
-            <prismic-rich-text :field="page.project_subtitle" />
+            <prismic-rich-text :field="page.project_subtitle" data-scroll data-scroll-direction="horizontal" data-scroll-speed="6" />
         </div>
         <div class="filmprojects-home-container">
-            <NuxtLink to="/">
-                <prismic-rich-text :field="page.filmproject_name1" />
+            <NuxtLink to="/filmprojects/the-perfect-match/" class="active">
+                <prismic-rich-text :field="page.filmproject_name3" id="ThePerfectMatchLink"/>
+                <prismic-image :field="page.filmproject_image_3" id="ThePerfectMatchImg"/>
             </NuxtLink>
-            <NuxtLink to="/">
-                <prismic-rich-text :field="page.filmproject_name2" />
+            <NuxtLink to="/filmprojects/whole-foods/">
+                <prismic-rich-text :field="page.filmproject_name1" id="WholeFoodsLink"/>
+                <prismic-image :field="page.filmproject_image_1" id="WholeFoodsImg" />
             </NuxtLink>
-            <NuxtLink to="/">
-                <prismic-rich-text :field="page.filmproject_name3" />
+            <NuxtLink to="/#">
+                <prismic-rich-text :field="page.filmproject_name2" id="FloatingAwayLink"/>
+                <prismic-image :field="page.filmproject_image_2" id="FloatingAwayImg" />
             </NuxtLink>
-            <prismic-image :field="page.filmproject_image_1" />
-            <prismic-image :field="page.filmproject_image_2" />
-            <prismic-image :field="page.filmproject_image_3" />
-            <div class="switch-all-project">
-                <NuxtLink to="/film">
-                    All Project
-                </NuxtLink>
-            </div>
+        </div>
+        <div class="switch-all-project">
+            <NuxtLink to="/film">
+                All Project
+            </NuxtLink>
         </div>
     </section>
-    <section class="photo-home-section">
-    <div class="photo-home-grid-container">
-        <NuxtLink to="/photography/#photo1" class="photo-home-image-container">
-            <prismic-image :field="page.photoproject_image_1" />
-        </NuxtLink>
-        <NuxtLink to="/photography/#photo2" class="photo-home-image-container">
-            <prismic-image :field="page.photoproject_image_2" />
-        </NuxtLink>
-        <NuxtLink to="/photography/#photo3" class="photo-home-image-container">
-            <prismic-image :field="page.photoproject_image_3" />
-        </NuxtLink>
-        <NuxtLink to="/photography/#photo4" class="photo-home-image-container">
-            <prismic-image :field="page.photoproject_image_4" />
-        </NuxtLink>
-        <NuxtLink to="/photography/#photo5" class="photo-home-image-container">
-            <prismic-image :field="page.photoproject_image_5" />
-        </NuxtLink>
-        <NuxtLink to="/photography/#photo6" class="photo-home-image-container">
-            <prismic-image :field="page.photoproject_image_6" />
-        </NuxtLink>
-        <NuxtLink to="/photography/#photo7" class="photo-home-image-container">
-            <prismic-image :field="page.photoproject_image_7" />
-        </NuxtLink>
-        <NuxtLink to="/photography/#photo8" class="photo-home-image-container">
-            <prismic-image :field="page.photoproject_image_8" />
-        </NuxtLink>
-        <NuxtLink to="/photography/#photo9" class="photo-home-image-container">
-            <prismic-image :field="page.photoproject_image_9" />
-        </NuxtLink>
-    </div>
+    <section class="photo-home-section" data-scroll-section>
+        <div class="films-home-container">
+            <h2 data-scroll data-scroll-direction="horizontal" data-scroll-speed="6">Photography</h2>
+        </div>
+        <div class="photo-home-grid-container">
+            <NuxtLink to="/photography/#0" class="photo-home-image-container">
+                <prismic-image :field="page.photoproject_image_1" />
+            </NuxtLink>
+            <NuxtLink to="/photography/#1" class="photo-home-image-container">
+                <prismic-image :field="page.photoproject_image_2" />
+            </NuxtLink>
+            <NuxtLink to="/photography/#2" class="photo-home-image-container">
+                <prismic-image :field="page.photoproject_image_3" />
+            </NuxtLink>
+            <NuxtLink to="/photography/#15" class="photo-home-image-container">
+                <prismic-image :field="page.photoproject_image_4" />
+            </NuxtLink>
+            <NuxtLink to="/photography/#14" class="photo-home-image-container">
+                <prismic-image :field="page.photoproject_image_5" />
+            </NuxtLink>
+            <NuxtLink to="/photography/#8" class="photo-home-image-container">
+                <prismic-image :field="page.photoproject_image_6" />
+            </NuxtLink>
+            <NuxtLink to="/photography/#6" class="photo-home-image-container">
+                <prismic-image :field="page.photoproject_image_7" />
+            </NuxtLink>
+            <NuxtLink to="/photography/#4" class="photo-home-image-container">
+                <prismic-image :field="page.photoproject_image_8" />
+            </NuxtLink>
+            <NuxtLink to="/photography/#18" class="photo-home-image-container">
+                <prismic-image :field="page.photoproject_image_9" />
+            </NuxtLink>
+        </div>
     </section>
-    <section class="contact-section home-contact">
+    <section class="contact-section home-contact" data-scroll-section>
         <div class="contact-infos-container">
             <div class="contact-title-container">
                 <div>
@@ -105,7 +127,7 @@
                 <div class="contact-follows-colums">
                     <h2>Follow</h2>
                     <prismic-rich-text :field="page.contact_social_media_1" />
-                    <prismic-rich-text :field="page.contact_social_media_1" />
+                    <prismic-rich-text :field="page.contact_social_media_2" />
                 </div>
             </div>
         </div>
@@ -117,18 +139,15 @@
             <p>All Rights Reserved</p>
         </div>
     </section>
+    </LocomotiveScroll>
   </div>
 </template>
 
 <script>
-import MainMenu from '@/components/MainMenu'
-import { gsap } from "gsap"
+import { gsap } from "gsap";
+
 
 export default {
-    components: { MainMenu },
-
-    name: 'HomePage',
-
     async asyncData({ $prismic, error }) {
         try {
         const pageContent = (await $prismic.api.getSingle('my_test_page')).data
@@ -159,25 +178,89 @@ export default {
         is_not_responsive: true,
         is_responsive: false,
     }),
-
+    
     mounted: function(){
+        this.CalcWidthLandingText(),
+        this.HoverProjects(),
         this.ListCaroussel(),
         this.ResponsiveValue()
+
+        const locomotive = this.$refs.scroller.locomotive
+        locomotive.on('call', (obj) => {
+            if (obj === 'AboutHomeAnimation') {
+                gsap.fromTo(".about-home-section h2", 1,{
+                    translateX: "100%", opacity: 0
+                },
+                {   
+                    translateX: "0%", opacity: 1
+                })
+                gsap.fromTo(".about-home-section h2", 1,{
+                    opacity: 1
+                },
+                {   
+                    opacity: 0.25, delay: 1
+                })
+                var AboutInfoWord = document.querySelectorAll(".about-infos-home-container .about-info-word-wrapper")
+                gsap.fromTo(AboutInfoWord, 1,{
+                    opacity: 0, translateY: 50,
+                },
+                {   
+                    opacity: 1, translateY: 0, stagger: 0.25, delay: 1, 
+                })
+
+                var AboutInfoParagraphe = document.querySelector(".about-home-details-container .about-details-paragrapher p")
+                gsap.fromTo(AboutInfoParagraphe, 1,{
+                    opacity: 0, translateY: 50,
+                },
+                {   
+                    opacity: 1, translateY: 0, delay: 1.25, 
+                })
+
+                var AboutInfoImage = document.querySelector(".about-home-details-container .about-details-image")
+                gsap.fromTo(AboutInfoImage, 1,{
+                    opacity: 0, translateY: "0%",
+                },
+                {   
+                    opacity: 1, translateY: "-20%", delay: 1.5, 
+                })
+            }
+            else if (obj === 'test') {
+                var LogoContainer = document.querySelector('.logo-container a')
+                var BurgerContainer = document.querySelector('.menu-open')
+                LogoContainer.classList.toggle('black-logo')
+                BurgerContainer.classList.toggle('black-burger')
+            }
+        });
     },
 
     methods: {
+        CalcWidthLandingText: function(){
+            var LandingText = document.querySelector(".landing-home-title-container")
+            var WidthLandingText = LandingText.offsetWidth
+            console.log(WidthLandingText)
+        },
+        HoverProjects: function(){
+            var HomeProjectContainers = document.querySelectorAll(".filmprojects-home-container a")
+            HomeProjectContainers.forEach( function(HomeProjectContainer){
+                HomeProjectContainer.addEventListener("mouseenter", function() {
+                    var HomeProjectCurrentContainer = document.querySelector(".filmprojects-home-container a.active")
+                    HomeProjectCurrentContainer.classList.remove("active")
+                    HomeProjectContainer.classList.add('active')
+                })
+            })
+        },
         ListCaroussel: function(){
-            gsap.fromTo('#connect', 1, { opacity: 0, repeat: -1, repeatDelay: 17 },
-            { opacity: 1, repeat: -1, repeatDelay: 17 });
-            gsap.to('#connect', 1, { opacity: 0, delay: 5, repeat: -1, repeatDelay: 17 });
+            gsap.fromTo('#connect', 0.5, { opacity: 0, repeat: -1, repeatDelay: 10 },
+            { opacity: 1, repeat: -1, repeatDelay: 10 });
+            gsap.to('#connect', 0.5, { opacity: 0, delay: 3, repeat: -1, repeatDelay: 10 });
             
-            gsap.fromTo('#create', 1, { opacity: 0, repeat: -1, repeatDelay: 17 },
-            { opacity: 1, delay: 6, repeat: -1, repeatDelay: 17 });
-            gsap.to('#create', 1, { opacity: 0, delay: 11, repeat: -1, repeatDelay: 17 });
+            gsap.fromTo('#create', 0.5, { opacity: 0, repeat: -1, repeatDelay: 10 },
+            { opacity: 1, delay: 3.5, repeat: -1, repeatDelay: 10 });
+            gsap.to('#create', 0.5, { opacity: 0, delay: 6.5, repeat: -1, repeatDelay: 10 });
             
-            gsap.fromTo('#collaborate', 1, { opacity: 0, repeat: -1, repeatDelay: 17 },
-            { opacity: 1, delay: 12, repeat: -1, repeatDelay: 17 });
-            gsap.to('#collaborate', 1, { opacity: 0, delay: 17, repeat: -1, repeatDelay: 17 });
+            gsap.fromTo('#collaborate', 0.5, { opacity: 0, repeat: -1, repeatDelay: 10 },
+            { opacity: 1, delay: 7, repeat: -1, repeatDelay: 10 });
+            gsap.to('#collaborate', 0.5, { opacity: 0, delay: 10, repeat: -1, repeatDelay: 10 });
         },
         ResponsiveValue: function(){
             const that = this 

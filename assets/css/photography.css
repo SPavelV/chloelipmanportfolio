@@ -3,53 +3,24 @@
     height: 100vh;
     overflow: hidden;
 }
-.slides-inner{
-    width: 100%;
-    height: 100%;
-}
-.slide{
-    height: 100%;
-    width: auto;
-    margin: auto;
-}
-.slide img{
+.swiper-wrapper{
     height: 100vh;
+}
+.swiper-slide{
+    width: fit-content !important;
+    min-height: 100%;
+}
+.swiper-slide img{
+    height: 100%;
     width: auto;
-    object-fit: cover;
-}
-.slick-slide{
-    opacity: 0.15;
+    opacity: 0.1;
     filter: grayscale(1);
+    transition: all .5s;
 }
-.slick-active.slick-center{
+.swiper-slide-active img{
     opacity: 1;
     filter: grayscale(0);
-}
-#prev{
-    position: absolute;
-    left: 20px;
-    top: 50vh;
-    transform: translateY(-50%);
-    z-index: 10;
-    background: none;
-    border: none;
-    box-shadow: none;
-}
-#next{
-    position: absolute;
-    right: 20px;
-    top: 50vh;
-    transform: translateY(-50%);
-    z-index: 10;
-    background: none;
-    border: none;
-    box-shadow: none;
-}
-#prev path{
-    fill: black;
-}
-#next path{
-    fill: black;
+    transition: opacity .3s;
 }
 .project-gridbtn-container{
     width: fit-content;

@@ -14,20 +14,20 @@
 				<div class="menu-content">
                     <ul>
                         <li>
-                            <NuxtLink to="/#about">About</NuxtLink>
-                            <img src="~/assets/img/1Floating.jpg" alt="">
+                            <NuxtLink to="/">About</NuxtLink>
+                            <img src="~/assets/img/menu-about.jpeg" alt="">
                         </li>
                         <li>
                             <NuxtLink to="/film">Films</NuxtLink>
-                            <img src="~/assets/img/1Floating.jpg" alt="">
+                            <img src="~/assets/img/WholeFoods2.png" alt="">
                         </li>
                         <li>
-                            <NuxtLink to="/photography">Photography</NuxtLink>
+                            <NuxtLink to="/gridphotography">Photography</NuxtLink>
                             <img src="~/assets/img/1Floating.jpg" alt="">
                         </li>
                         <li>
                             <NuxtLink to="/contact">Contact</NuxtLink>
-                            <img src="~/assets/img/1Floating.jpg" alt="">
+                            <img src="~/assets/img/menu-contact.jpeg" alt="">
                         </li>
                     </ul>
 				</div>
@@ -47,11 +47,24 @@ export default {
         OpenMenuAnimation: function(){
             var menuToggle = document.getElementById('menu-toggle');
             var menuLogo = document.getElementById('site-logo');
+            var menuBurger = document.querySelector('.menu-open');
+            var menuLinks = document.querySelectorAll('.menu-content a')
 
             menuToggle.addEventListener("click", function(){ 
                 menuLogo.classList.toggle("menu-active")
-                }
-            )
+                menuBurger.classList.toggle("menu-active")
+            })
+
+            menuLinks.forEach(function(menuLink){
+                menuLink.addEventListener("click", function(){ 
+                    menuLogo.classList.remove("menu-active")
+                    menuBurger.classList.remove("menu-active")
+                    menuLogo.classList.remove("black-logo")
+                    menuBurger.classList.remove("black-burger")
+                    document.getElementById("menu-toggle").checked = false;
+                })
+            })
+
         },
         ResponsiveHeightValue: function(){
             document.querySelector(':root').style
